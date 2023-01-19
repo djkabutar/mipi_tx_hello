@@ -1,0 +1,6 @@
+work_*/
+outflow/
+ip/
+*.bit
+*.hex
+*.lock

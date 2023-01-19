@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<efxpt:design_db name="mipi_loopback" device_def="T85F324" location="D:\VeggProjects\FPGA Examples\Effinix_MIPI_Streaming_to_RK3399-main" version="2021.2.323" db_version="20212999" last_change_date="Thu Jan 19 16:35:46 2023" xmlns:efxpt="http://www.efinixinc.com/peri_design_db" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/peri_design_db peri_design_db.xsd ">
+    <efxpt:device_info>
+        <efxpt:iobank_info>
+            <efxpt:iobank name="1A" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="1B_1C" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="1D_1E_1F_1G" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="2D" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="2E" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="2F" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="3A" iostd="1.2 V"/>
+            <efxpt:iobank name="3B" iostd="1.2 V"/>
+            <efxpt:iobank name="3D_TR_BR" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="3E" iostd="1.5 V"/>
+            <efxpt:iobank name="4E" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="4F" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="BL" iostd="1.2 V"/>
+            <efxpt:iobank name="TL" iostd="1.2 V"/>
+        </efxpt:iobank_info>
+        <efxpt:ctrl_info>
+            <efxpt:ctrl name="cfg" ctrl_def="CONFIG_CTRL0" clock_name="" is_clk_invert="false" cbsel_bus_name="cfg_CBSEL" config_ctrl_name="cfg_CONFIG" ena_capture_name="cfg_ENA" error_status_name="cfg_ERROR" um_signal_status_name="cfg_USR_STATUS" is_remote_update_enable="false" is_user_mode_enable="false"/>
+        </efxpt:ctrl_info>
+    </efxpt:device_info>
+    <efxpt:gpio_info device_def="T120F324">
+        <efxpt:gpio name="led5" gpio_def="GPIOT_RXP24" mode="output" bus_name="" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:output_config name="led5" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="led6" gpio_def="GPIOT_RXN24" mode="output" bus_name="" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:output_config name="led6" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="mipi_refclk" gpio_def="GPIOR_169" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:input_config name="mipi_refclk" name_ddio_lo="" conn_type="mipi_clkin" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pullup" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="ref_clk" gpio_def="GPIOR_166" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:input_config name="ref_clk" name_ddio_lo="" conn_type="pll_clkin" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pullup" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="rst_n" gpio_def="GPIOT_RXP29" mode="input" bus_name="" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:input_config name="rst_n" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pullup" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="sw4" gpio_def="GPIOT_RXN28" mode="input" bus_name="" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:input_config name="sw4" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pullup" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="sw5" gpio_def="GPIOT_RXP28" mode="input" bus_name="" is_lvds_gpio="true" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:input_config name="sw5" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pullup" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:global_unused_config state="input with weak pullup"/>
+    </efxpt:gpio_info>
+    <efxpt:pll_info>
+        <efxpt:pll name="mypll" pll_def="PLL_TR0" ref_clock_name="" ref_clock_freq="74.25" multiplier="146" pre_divider="7" post_divider="1" reset_name="" locked_name="" is_ipfrz="false" is_bypass_lock="true">
+            <efxpt:output_clock name="tx_vga_clk" number="0" out_divider="121" adv_out_phase_shift="0"/>
+            <efxpt:output_clock name="tx_pixel_clk" number="1" out_divider="242" adv_out_phase_shift="0"/>
+            <efxpt:output_clock name="tx_esc_pll_CLKOUT0" number="2" out_divider="129" adv_out_phase_shift="0"/>
+            <efxpt:adv_prop ref_clock_mode="external" ref_clock1_name="" ext_ref_clock_id="2" clksel_name="" feedback_clock_name="" feedback_mode="internal"/>
+        </efxpt:pll>
+    </efxpt:pll_info>
+    <efxpt:lvds_info/>
+    <efxpt:mipi_info>
+        <efxpt:mipi name="my_mipi_tx" mipi_def="MIPI_TX0" ops_type="tx">
+            <efxpt:mtx_info ref_clock_freq="25.0" phy_tx_freq_code="144" is_cont_phy_clocking="false" esc_clock_freq="12.0">
+                <efxpt:gen_pin>
+                    <efxpt:pin name="my_mipi_tx_ULPS_CLK_ENTER" type_name="ULPS_CLK_ENTER" is_bus="false"/>
+                    <efxpt:pin name="my_mipi_tx_ULPS_CLK_EXIT" type_name="ULPS_CLK_EXIT" is_bus="false"/>
+                    <efxpt:pin name="my_mipi_tx_FRAME_MODE" type_name="FRAME_MODE" is_bus="false"/>
+                    <efxpt:pin name="my_mipi_tx_TXDN" type_name="TXDN" is_bus="true"/>
+                    <efxpt:pin name="my_mipi_tx_TYPE" type_name="TYPE" is_bus="true"/>
+                    <efxpt:pin name="my_mipi_tx_RSTN" type_name="RSTN" is_bus="false"/>
+                    <efxpt:pin name="my_mipi_tx_LANES" type_name="LANES" is_bus="true"/>
+                    <efxpt:pin name="my_mipi_tx_DPHY_RSTN" type_name="DPHY_RSTN" is_bus="false"/>
+                    <efxpt:pin name="my_mipi_tx_VC" type_name="VC" is_bus="true"/>
+                    <efxpt:pin name="my_mipi_tx_HSYNC" type_name="HSYNC" is_bus="false"/>
+                    <efxpt:pin name="my_mipi_tx_VALID" type_name="VALID" is_bus="false"/>
+                    <efxpt:pin name="my_mipi_tx_ULPS_EXIT" type_name="ULPS_EXIT" is_bus="true"/>
+                    <efxpt:pin name="tx_pixel_clk" type_name="PIXEL_CLK" is_bus="false" is_clk="true" is_clk_invert="false"/>
+                    <efxpt:pin name="my_mipi_tx_DATA" type_name="DATA" is_bus="true"/>
+                    <efxpt:pin name="my_mipi_tx_ULPS_ENTER" type_name="ULPS_ENTER" is_bus="true"/>
+                    <efxpt:pin name="my_mipi_tx_TXDP" type_name="TXDP" is_bus="true"/>
+                    <efxpt:pin name="my_mipi_tx_VSYNC" type_name="VSYNC" is_bus="false"/>
+                    <efxpt:pin name="tx_esc_pll_CLKOUT0" type_name="ESC_CLK" is_bus="false" is_clk="true" is_clk_invert="false"/>
+                    <efxpt:pin name="my_mipi_tx_HRES" type_name="HRES" is_bus="true"/>
+                </efxpt:gen_pin>
+                <efxpt:phy_lane lane_id="0" logical_lane_id="0" is_pn_swap="false"/>
+                <efxpt:phy_lane lane_id="1" logical_lane_id="1" is_pn_swap="false"/>
+                <efxpt:phy_lane lane_id="2" logical_lane_id="4" is_pn_swap="false"/>
+                <efxpt:phy_lane lane_id="3" logical_lane_id="2" is_pn_swap="false"/>
+                <efxpt:phy_lane lane_id="4" logical_lane_id="3" is_pn_swap="false"/>
+                <efxpt:tx_timing t_clk_post="1" t_clk_trail="9" t_clk_prepare="4" t_clk_zero="7" t_clk_pre="2" t_hs_prepare="4" t_hs_zero="2" t_hs_trail="5"/>
+            </efxpt:mtx_info>
+        </efxpt:mipi>
+    </efxpt:mipi_info>
+    <efxpt:jtag_info>
+        <efxpt:jtag name="bscan" jtag_def="JTAG_USER1">
+            <efxpt:gen_pin>
+                <efxpt:pin name="bscan_UPDATE" type_name="UPDATE" is_bus="false"/>
+                <efxpt:pin name="bscan_TCK" type_name="TCK" is_bus="false"/>
+                <efxpt:pin name="bscan_SHIFT" type_name="SHIFT" is_bus="false"/>
+                <efxpt:pin name="bscan_TDI" type_name="TDI" is_bus="false"/>
+                <efxpt:pin name="bscan_RUNTEST" type_name="RUNTEST" is_bus="false"/>
+                <efxpt:pin name="bscan_RESET" type_name="RESET" is_bus="false"/>
+                <efxpt:pin name="bscan_DRCK" type_name="DRCK" is_bus="false"/>
+                <efxpt:pin name="bscan_CAPTURE" type_name="CAPTURE" is_bus="false"/>
+                <efxpt:pin name="bscan_TMS" type_name="TMS" is_bus="false"/>
+                <efxpt:pin name="bscan_TDO" type_name="TDO" is_bus="false"/>
+                <efxpt:pin name="bscan_SEL" type_name="SEL" is_bus="false"/>
+            </efxpt:gen_pin>
+        </efxpt:jtag>
+    </efxpt:jtag_info>
+    <efxpt:ddr_info/>
+</efxpt:design_db>
